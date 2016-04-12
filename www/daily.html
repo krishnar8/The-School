@@ -1,0 +1,227 @@
+<!doctype html>
+<html class="no-js">
+<head>
+<meta charset="utf-8">
+<title></title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width">
+
+<script src="js/angular.min.js"></script>
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+<script 	src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.13.0/ui-bootstrap-tpls.min.js"></script>
+<script src="js/tabController.js"></script>
+<script type='text/javascript' src='./js/ng-infinite-scroll.min.js'></script>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+<link rel="stylesheet" 	href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<link rel="stylesheet" 	href="http://rawgit.com/dbtek/angular-aside/master/dist/css/angular-aside.css">
+
+</head>
+<body>
+	<div class="container" ng-controller="notificationController">
+		<marquee direction="left">
+		
+		 
+		{{notifications}} 				
+		</marquee>
+		<div>
+
+
+
+			<ul class="nav nav-pills ">
+				<li ng-class="{ active: isSet(1) }"><a ng-click="setTab(1)">Daily</a>
+				</li>
+				<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+				<li ng-class="{ active: isSet(2) }"><a href
+					ng-click="setTab(2)">Images & Documents</a></li>
+					<!-- 
+				<li ng-class="{ active: isSet(3) }"><a href
+					ng-click="setTab(3)">Notifications</a></li>
+	 				-->
+			</ul>
+
+		</div>
+
+
+		<div>
+			<div class="tab-content">
+		 
+				<div ng-show="isSet(1)">
+					<table>
+						<tr>
+							<td>
+								<h3>Daily Acitivity</h3>
+							</td>
+						
+						<td>	
+							 
+							  <span us-spinner="{radius:30, width:8, length: 16}"></span>
+							 
+									<input type="text" id="valuationDate" size="20"
+										style="border-style: solid; border-bottom: 0px; border-top: 0px; border-left: 0px; border-right: 0px;"
+										datepicker-popup="mediumDate"
+										is-open="valuationDatePickerIsOpen"
+										ng-click="valuationDatePickerOpen()" ng-model="dailyDate" />
+								 
+						</tr>
+					</table>
+
+
+
+					<div
+						style="float: right; width: 100%; overflow: hide; display: inline; position: relative;"	ng-controller="dailyController">
+
+ <span us-spinner="{radius:30, width:8, length: 16}"></span>
+
+	<span>
+						<div ng-repeat="item in dailyActivity" ng-init="sectionIndex = $index">
+
+						
+							<div class="panel panel-default" >
+								
+									<div class="panel-heading" ng-click="showHide = !showHide">
+										<h4 class="panel-title">  {{item.activityMessageTitle}}
+										
+										 
+										 <!-- <p ng-bind-html="SkipValidation(entry.summary)"></p> -->
+										  </h4>
+										
+									</div>
+									 
+									<div class="panel-body" ng-show="showHide">
+										<span> 
+										
+									<!-- 	{{item.activityMessage}}  -->
+										 
+										   <p ng-bind-html="item.activityMessage"></p>
+										   
+										   
+										 </span>
+									</div>
+									 
+							</div>
+							
+						
+						</div>
+	</span>
+					</div>
+
+
+
+
+
+
+
+				</div>
+	     
+   </div>
+ 
+   
+					 
+					</div>
+
+ 
+				</div>
+
+			</div>
+			 
+						
+			<div ng-show="isSet(2)">
+
+				<table>
+					<tr>
+						<td>
+							<h3>Images & Documents</h3>
+						</td>
+						<td>&nbsp;&nbsp;&nbsp;
+						</td>
+					</tr>
+				</table>
+						
+					<div style="float: right; width: 100%; overflow: hide; display: inline; position: relative;" ng-controller="weeklyController">
+						<span>
+						<div ng-repeat="item in imageActivity" ng-init="sectionIndex=$index">
+								<div class="panel panel-default" >
+								
+									<div class="panel-heading" ng-click="showHide = !showHide">
+										<h4 class="panel-title">  {{item.activityMessageTitle}}
+										
+										 
+										 <!-- <p ng-bind-html="SkipValidation(entry.summary)"></p> -->
+										  </h4>
+										
+									</div>
+									 
+									<div class="panel-body" ng-show="showHide">
+										<span> 
+									 
+									<div ng-if="'jpeg'==item.fileFormat">
+									 			<div ng-repeat="image2 in item.imageStringList">
+									 				<div ng-repeat="(a, b) in image2">
+													<p>{{a|limitTo:(-(a.length-6))}}<p>
+													<img ng-src="data:image/jpeg;base64,{{b}}"/>
+													
+													</p>
+													</div>
+												</div>
+									 			</div>
+									 			
+									 			
+									<div ng-if="'pdf'==item.fileFormat">
+									 			<div ng-repeat="image2 in item.imageStringList">
+									 				<div ng-repeat="(a, b) in image2">
+													<a ng-href="#" ng-click="downLoadFile('{{b}}')">{{a | limitTo:(-(a.length-6))}} </a>
+													
+													</p>
+													</div>
+												</div>
+									 			</div>	
+									 			 </span>
+									 	</div>
+										
+									<!-- 	{{item.activityMessage}}  -->
+										 
+										   
+										   
+										
+									</div>
+									 
+							</div>
+						</span>
+						</div>
+						
+						 
+					</div>
+
+			<div ng-show="isSet(3)">
+				<table>
+					<tr>
+						<td>
+							<h3>Notifications</h3>
+						</td>
+						<td>&nbsp;&nbsp;&nbsp;
+						<td>
+					</tr>
+				</table>
+				
+				<div style="float: right; width: 80%; overflow: hide; display: inline; position: relative;" ng-controller="notificationController">
+						<table class="table table-striped">
+							<tbody>
+					{{notifications}}
+							</tbody>
+						</table>
+					</div>
+
+			</div>
+
+		</div>
+	</div>
+
+
+
+
+</body>
+</html>

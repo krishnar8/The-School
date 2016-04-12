@@ -1,0 +1,216 @@
+<!doctype html>
+<html>
+    <head>
+     <script src="js/angular.min.1.3.js"></script>
+    <script src="js/ui-bootstrap-tpls-0.13.4.min.js"></script>
+    <script src="js/jquery-1.9.1.min.js"></script>
+    <script src="js/angular-hamburger-toggle.js"></script>
+    <script src="js/angular-sanitize.js"></script>
+     <script src="js/angular-touch.js"></script>
+     <script src="js/angular-animate.js"></script>
+     <script src="js/csv.js"></script>
+    <script src="js/pdfmake.js"></script>
+    <script src="js/vfs_fonts.js"></script>
+    <script src="js/ui-grid.js"></script>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/textAngular/1.1.2/textAngular.min.js'></script>
+      
+  <script type="text/javascript" src="http://fgnass.github.io/spin.js/spin.min.js"></script>
+  <script type="text/javascript" src="js/angular-spinner.min.js"></script>
+  <script type="text/javascript" src="js/angular-loading-spinner.js"></script>
+   
+    <script src="js/myService.js" type="text/javascript"></script>
+   <script src="js/menuController.js" type="text/javascript"></script>
+  
+       <script src="js/profileController.js" type="text/javascript"></script>
+        <script src="js/loginController.js" type="text/javascript"></script>
+        <script src="js/indexController.js" type="text/javascript"></script>
+            <script src="js/studentController.js" type="text/javascript"></script>
+          <script src="js/changePassword.js" type="text/javascript"></script>
+        <script src="js/dailyController.js" type="text/javascript"></script>
+       <script src="js/notificationController.js" type="text/javascript"></script>
+       <script src="js/weeklyController.js" type="text/javascript"></script>
+     <script src="js/schoolController.js"></script>
+ <script src="js/branchController.js" type="text/javascript"></script>
+             <script src="js/classController.js" type="text/javascript"></script>
+               <script src="js/entitilmentController.js" type="text/javascript"></script>
+     <script src="js/activityController.js" type="text/javascript"></script>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+<!--     <link rel="stylesheet" href="http://rawgit.com/dbtek/angular-aside/master/dist/css/angular-aside.css">  -->
+    <link rel="stylesheet" href="css/angular-hamburger-toggle.css">
+    <link rel="stylesheet" href="css/ui-grid.css" type="text/css">
+     
+  
+  <script src="js/angular.min.js"></script>
+<script src="js/jquery-1.9.1.min.js"></script>
+<script 	src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.13.0/ui-bootstrap-tpls.min.js"></script>
+<script src="js/tabController.js"></script>
+<script type='text/javascript' src='./js/ng-infinite-scroll.min.js'></script>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+<link rel="stylesheet" 	href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<link rel="stylesheet" 	href="http://rawgit.com/dbtek/angular-aside/master/dist/css/angular-aside.css">
+  
+ 
+    <style type="text/css">
+        .login-form {
+            max-width: 300px;
+            margin: 0 auto;
+        }
+        #inputUsername {
+          margin-bottom: -1px;
+          border-bottom-right-radius: 0;
+          border-bottom-left-radius: 0;
+        }
+        #inputPassword {
+            border-top-left-radius: 0;
+              border-top-right-radius: 0;
+        }
+    </style>
+               
+    </head>
+ 
+  <style>
+    .navbar .hamburger-toggle {
+      top: 18px;
+    }
+    .hamburger-toggle .material-design-hamburger__layer {
+      background: #666;
+    }
+
+    .content {
+      transition: all 0.2s ease-in-out;
+      -webkit-transition: all 0.2s ease-in-out;
+    }
+    .content.sidenav-open {
+      padding-left: 330px;
+    }
+    .sidenav {
+      width: 0;
+      overflow: hidden;
+      position: fixed;
+      left: 0;
+      top: 65px;
+      bottom: 0;
+      transition: all 0.2s ease-in-out;
+      -webkit-transition: all 0.2s ease-in-out;
+       box-shadow: 0 8px 17px rgba(0,0,0,.2);
+      -webkit-box-shadow: 0 8px 17px rgba(0,0,0,.2);
+      background: #fff;
+      z-index: 10;
+    }
+    .sidenav.open {
+      width: 300px;
+    }
+
+    .navbar {
+      z-index: 100;
+    }
+    .navbar-brand {
+      margin-left: 25px !important;
+    }
+    .container.panel {
+      min-height: 500px
+    }
+    
+     .navbar-brand-right {
+     margin-right: 200px !important;
+    }
+    
+    .footer {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+    .adsbygoogle {
+      width: 320px !important;
+      height: 270px !important;
+      border-radius: 4px;
+      border: 1px solid #eee;
+      padding: 10px;
+    }
+    @media (max-width: 940px) {
+      .adsbygoogle {
+        float: none !important;
+        width: 100% !important;
+        text-align: center;
+      }
+    }
+    
+  </style>
+ <body  ng-app="myKidSchool">
+    <!-- Add your site or application content here -->
+    <div>
+ <div ng-controller="menuController">
+    <div class="header">
+      <div class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+          <div class="navbar-header" style="width:100%;">
+            <hamburger-toggle state="tgState" class="hamburger-toggle" ></hamburger-toggle>
+            <a class="navbar-brand" style="color:blue;">
+             <h4 style="color:red;">{{schoolName}}ddddd</h4>
+            </a>
+            <!-- 
+ <a class="navbar-brand" style="align:center; position:absolute; left:30%;color:#87CEFA" ng-show="showStudentName">
+              <h4>{{userName}}</h4>
+            </a>
+             -->
+             <a class="navbar-brand" style="color:blue;float:right;margin-right:-10px;align:center;" ng-show="showStudentName">
+                <h4 ng-click="logout()"><span style="color:black;"  class="glyphicon glyphicon-log-out"></span></h4>
+            </a>
+            
+          </div>
+        </div>
+      </div>
+      
+     
+      
+      
+    </div>
+
+    <div class="sidenav" ng-class="{open: tgState}" id="sideNav"  >
+      <ul class="nav nav-pills nav-stacked">
+    
+         <li id="login" ng-show="viewloginMenu" role="presentation"><a href="#content1" data-ng-click="getLoginPage()">Login</a></li>
+  
+        <li id="home" ng-show="viewHomeMenu"  role="#content1" ><a href="#" data-ng-click="getHomePage()">Home</a></li>
+  
+        <li id="profile" ng-show="viewProfileMenu" role="presentation"><a href="#content1" data-ng-click="getProfilePage()">Profile</a></li>
+        <li id="message" ng-show="viewSchoolMenu"  role="presentation"><a href="#content1" data-ng-click="getSchoolInfoPage()">School Info</a></li>
+         <li id="branch"  ng-show="viewBranchMenu" role="presentation"><a href="#content1" data-ng-click="getBranchInfoPage()">Branch Info</a></li>
+         <li id="student"   role="presentation"><a href="#content1" data-ng-click="getStudentInfoPage()">Student Info</a></li>
+         <li id="class"   role="presentation"><a href="#content1" data-ng-click="getClassInfoPage()">Class Info</a></li>
+         <li id="class"   role="presentation"><a href="#content1" data-ng-click="getEntitlmentInfoPage()">Entitlment Info</a></li>
+          <li id="class"   role="presentation"><a href="#content1" data-ng-click="getActivityInfoPage()">Activity Info</a></li>
+  <li id="changePassword"   role="presentation"><a href="#content1" data-ng-click="getChangePasswordPage()">Change Password</a></li>
+
+
+      </ul>
+    </div>
+    <!-- ng-controller="tabController" -->
+ 
+    <div class="content" ng-class="{'sidenav-open': tgState}" id="mainDiv" >
+      <div class="container panel">
+        <p>
+      <ng-include src="getTemplate()" ></ng-include>
+        </p>
+      </div>
+    </div>
+ 
+ </div>
+  
+    <div class="footer text-center">
+      <p>
+        built with <span class="glyphicon glyphicon-heart"></span>
+        by
+        <a href="https://corenuts.com">Core Nuts</a>
+      </p>
+      
+       
+
+    </div>
+  
+   </div>
+      
+</body>
+</html>
